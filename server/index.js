@@ -1,14 +1,17 @@
 import express from "express";
 import { config } from "dotenv";
+import router from "./routes/todo.js";
+import { connectDB } from "./config/connectDB.js";
 config();
 
 const app = express();
 const PORT = process.env.PORT;
-
+connectDB();
 // middlewares
 app.use(express.json());
 
 // routes
+app.use("/todo", router);
 app.get("/", (req, res) => {
   res.status(200).json({ success: true, message: "Server is running" });
 });

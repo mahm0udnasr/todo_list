@@ -4,14 +4,14 @@ import {
   createTodo,
   updateTodo,
   deleteTodo,
-} from "../controllers/todo";
+} from "../controllers/todo.js";
 
 const router = express.Router();
 
-router.get("/", getTodos);
-router.post("/create", createTodo);
-router.patch("/update", updateTodo);
-router.delete("/delete", deleteTodo);
+router.get("/", getTodos); // get all todos
+router.post("/", createTodo); // create new todo
+router.patch("/:id", updateTodo); // update todo
+router.delete("/:id", deleteTodo); // delete todo
 
 
 export default router;
